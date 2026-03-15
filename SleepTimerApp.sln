@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36414.22 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SleepTimerApp", "SleepTimerApp.csproj", "{AFADA578-DB00-45D3-A6FF-73584C407397}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AFADA578-DB00-45D3-A6FF-73584C407397}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AFADA578-DB00-45D3-A6FF-73584C407397}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AFADA578-DB00-45D3-A6FF-73584C407397}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AFADA578-DB00-45D3-A6FF-73584C407397}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {985CE1C3-6E55-4B2F-8366-0F087E0F9588}
+	EndGlobalSection
+EndGlobal
