@@ -1,30 +1,11 @@
-﻿namespace SleepTimerApp
+﻿namespace SDRAlarm
 {
     partial class Form1
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing && (components != null))
-            {
-                components.Dispose();
-            }
-            base.Dispose(disposing);
-        }
-
-        #region Windows Form Designer generated code
-
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
+        /// Required designer variable.
         /// </summary>
         private void InitializeComponent()
         {
@@ -45,6 +26,11 @@
             this.timeStart = new System.Windows.Forms.DateTimePicker();
             this.btnSetAlarm = new System.Windows.Forms.Button();
             this.timer3 = new System.Windows.Forms.Timer(this.components);
+            this.lblAlarmCountdown = new System.Windows.Forms.Label();
+            this.txtProgramPath = new System.Windows.Forms.TextBox();
+            this.btnBrowse = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numHours)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numMinutes)).BeginInit();
             this.SuspendLayout();
@@ -53,16 +39,16 @@
             // 
             this.cmbProcesses.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbProcesses.FormattingEnabled = true;
-            this.cmbProcesses.Location = new System.Drawing.Point(13, 60);
+            this.cmbProcesses.Location = new System.Drawing.Point(12, 68);
             this.cmbProcesses.Name = "cmbProcesses";
-            this.cmbProcesses.Size = new System.Drawing.Size(278, 21);
+            this.cmbProcesses.Size = new System.Drawing.Size(278, 28);
             this.cmbProcesses.TabIndex = 2;
             // 
             // btnRefresh
             // 
-            this.btnRefresh.Location = new System.Drawing.Point(13, 111);
+            this.btnRefresh.Location = new System.Drawing.Point(296, 68);
             this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(75, 23);
+            this.btnRefresh.Size = new System.Drawing.Size(75, 28);
             this.btnRefresh.TabIndex = 3;
             this.btnRefresh.Text = "Refresh";
             this.btnRefresh.UseVisualStyleBackColor = true;
@@ -71,53 +57,53 @@
             // lblHours
             // 
             this.lblHours.AutoSize = true;
-            this.lblHours.Location = new System.Drawing.Point(13, 161);
+            this.lblHours.Location = new System.Drawing.Point(12, 106);
             this.lblHours.Name = "lblHours";
-            this.lblHours.Size = new System.Drawing.Size(35, 13);
+            this.lblHours.Size = new System.Drawing.Size(52, 20);
             this.lblHours.TabIndex = 4;
             this.lblHours.Text = "Hours";
             this.lblHours.Click += new System.EventHandler(this.label1_Click);
             // 
             // numHours
             // 
-            this.numHours.Location = new System.Drawing.Point(16, 201);
+            this.numHours.Location = new System.Drawing.Point(17, 129);
             this.numHours.Maximum = new decimal(new int[] {
             12,
             0,
             0,
             0});
             this.numHours.Name = "numHours";
-            this.numHours.Size = new System.Drawing.Size(120, 20);
+            this.numHours.Size = new System.Drawing.Size(120, 26);
             this.numHours.TabIndex = 5;
             // 
             // lblMinutes
             // 
             this.lblMinutes.AutoSize = true;
-            this.lblMinutes.Location = new System.Drawing.Point(168, 161);
+            this.lblMinutes.Location = new System.Drawing.Point(167, 106);
             this.lblMinutes.Name = "lblMinutes";
-            this.lblMinutes.Size = new System.Drawing.Size(44, 13);
+            this.lblMinutes.Size = new System.Drawing.Size(65, 20);
             this.lblMinutes.TabIndex = 6;
             this.lblMinutes.Text = "Minutes";
             // 
             // numMinutes
             // 
-            this.numMinutes.Location = new System.Drawing.Point(171, 200);
+            this.numMinutes.Location = new System.Drawing.Point(171, 129);
             this.numMinutes.Maximum = new decimal(new int[] {
             59,
             0,
             0,
             0});
             this.numMinutes.Name = "numMinutes";
-            this.numMinutes.Size = new System.Drawing.Size(120, 20);
+            this.numMinutes.Size = new System.Drawing.Size(120, 26);
             this.numMinutes.TabIndex = 7;
             // 
             // lblCountdown
             // 
             this.lblCountdown.AutoSize = true;
-            this.lblCountdown.BackColor = System.Drawing.Color.Black;
+            this.lblCountdown.BackColor = System.Drawing.Color.Transparent;
             this.lblCountdown.Font = new System.Drawing.Font("Consolas", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCountdown.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.lblCountdown.Location = new System.Drawing.Point(251, 251);
+            this.lblCountdown.Location = new System.Drawing.Point(14, 192);
             this.lblCountdown.MaximumSize = new System.Drawing.Size(300, 100);
             this.lblCountdown.Name = "lblCountdown";
             this.lblCountdown.Size = new System.Drawing.Size(232, 56);
@@ -127,9 +113,9 @@
             // 
             // btnStart
             // 
-            this.btnStart.Location = new System.Drawing.Point(13, 279);
+            this.btnStart.Location = new System.Drawing.Point(16, 161);
             this.btnStart.Name = "btnStart";
-            this.btnStart.Size = new System.Drawing.Size(75, 23);
+            this.btnStart.Size = new System.Drawing.Size(121, 28);
             this.btnStart.TabIndex = 9;
             this.btnStart.Text = "Start Timer";
             this.btnStart.UseVisualStyleBackColor = true;
@@ -137,9 +123,9 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(106, 279);
+            this.btnCancel.Location = new System.Drawing.Point(171, 161);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.Size = new System.Drawing.Size(119, 28);
             this.btnCancel.TabIndex = 10;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -148,40 +134,35 @@
             // lblStatus
             // 
             this.lblStatus.AutoSize = true;
-            this.lblStatus.Location = new System.Drawing.Point(10, 333);
+            this.lblStatus.Location = new System.Drawing.Point(8, 248);
             this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(38, 13);
+            this.lblStatus.Size = new System.Drawing.Size(55, 20);
             this.lblStatus.TabIndex = 11;
             this.lblStatus.Text = "Ready";
-            // 
-            // timer1
-            // 
-            this.timer1.Interval = 1000;
             // 
             // lblAlarm
             // 
             this.lblAlarm.AutoSize = true;
-            this.lblAlarm.Location = new System.Drawing.Point(13, 398);
+            this.lblAlarm.Location = new System.Drawing.Point(9, 355);
             this.lblAlarm.Name = "lblAlarm";
-            this.lblAlarm.Size = new System.Drawing.Size(68, 13);
+            this.lblAlarm.Size = new System.Drawing.Size(249, 20);
             this.lblAlarm.TabIndex = 12;
-            this.lblAlarm.Text = "Start SDR At";
+            this.lblAlarm.Text = "Start Program At Local Time (24h)";
             // 
             // timeStart
             // 
-            this.timeStart.CustomFormat = "MM:DD:hh:mm";
             this.timeStart.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.timeStart.Location = new System.Drawing.Point(13, 459);
+            this.timeStart.Location = new System.Drawing.Point(12, 410);
             this.timeStart.Name = "timeStart";
-            this.timeStart.Size = new System.Drawing.Size(200, 20);
+            this.timeStart.Size = new System.Drawing.Size(200, 26);
             this.timeStart.TabIndex = 13;
             this.timeStart.Value = new System.DateTime(2026, 3, 15, 0, 0, 0, 0);
             // 
             // btnSetAlarm
             // 
-            this.btnSetAlarm.Location = new System.Drawing.Point(13, 505);
+            this.btnSetAlarm.Location = new System.Drawing.Point(13, 442);
             this.btnSetAlarm.Name = "btnSetAlarm";
-            this.btnSetAlarm.Size = new System.Drawing.Size(112, 23);
+            this.btnSetAlarm.Size = new System.Drawing.Size(199, 27);
             this.btnSetAlarm.TabIndex = 14;
             this.btnSetAlarm.Text = "Set Start Time";
             this.btnSetAlarm.UseVisualStyleBackColor = true;
@@ -190,13 +171,64 @@
             // timer3
             // 
             this.timer3.Interval = 1000;
-            this.timer3.Tick += new System.EventHandler(this.btnSetAlarm_Click);
+            this.timer3.Tick += new System.EventHandler(this.timer3_Tick);
+            // 
+            // lblAlarmCountdown
+            // 
+            this.lblAlarmCountdown.AutoSize = true;
+            this.lblAlarmCountdown.BackColor = System.Drawing.Color.Transparent;
+            this.lblAlarmCountdown.Font = new System.Drawing.Font("Consolas", 36F);
+            this.lblAlarmCountdown.ForeColor = System.Drawing.Color.DarkGreen;
+            this.lblAlarmCountdown.Location = new System.Drawing.Point(14, 472);
+            this.lblAlarmCountdown.Name = "lblAlarmCountdown";
+            this.lblAlarmCountdown.Size = new System.Drawing.Size(232, 56);
+            this.lblAlarmCountdown.TabIndex = 15;
+            this.lblAlarmCountdown.Text = "00:00:00";
+            // 
+            // txtProgramPath
+            // 
+            this.txtProgramPath.Location = new System.Drawing.Point(12, 378);
+            this.txtProgramPath.Name = "txtProgramPath";
+            this.txtProgramPath.ReadOnly = true;
+            this.txtProgramPath.Size = new System.Drawing.Size(356, 26);
+            this.txtProgramPath.TabIndex = 16;
+            // 
+            // btnBrowse
+            // 
+            this.btnBrowse.Location = new System.Drawing.Point(218, 410);
+            this.btnBrowse.Name = "btnBrowse";
+            this.btnBrowse.Size = new System.Drawing.Size(150, 26);
+            this.btnBrowse.TabIndex = 17;
+            this.btnBrowse.Text = "Browse Program...";
+            this.btnBrowse.UseVisualStyleBackColor = true;
+            this.btnBrowse.Click += new System.EventHandler(this.btnBrowse_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 304);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(352, 20);
+            this.label1.TabIndex = 18;
+            this.label1.Text = "_____________ Alarm settings _____________";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(9, 18);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(371, 20);
+            this.label2.TabIndex = 19;
+            this.label2.Text = "_______________ Sleep Timer _______________";
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(631, 582);
+            this.ClientSize = new System.Drawing.Size(390, 542);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.btnBrowse);
+            this.Controls.Add(this.txtProgramPath);
+            this.Controls.Add(this.lblAlarmCountdown);
             this.Controls.Add(this.btnSetAlarm);
             this.Controls.Add(this.timeStart);
             this.Controls.Add(this.lblAlarm);
@@ -211,7 +243,7 @@
             this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.cmbProcesses);
             this.Name = "Form1";
-            this.Text = "Program Sleep Timer";
+            this.Text = "SDR Timer Alarm";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numHours)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numMinutes)).EndInit();
@@ -220,7 +252,6 @@
 
         }
 
-        #endregion
         private System.Windows.Forms.ComboBox cmbProcesses;
         private System.Windows.Forms.Button btnRefresh;
         private System.Windows.Forms.Label lblHours;
@@ -237,6 +268,11 @@
         private System.Windows.Forms.DateTimePicker timeStart;
         private System.Windows.Forms.Button btnSetAlarm;
         private System.Windows.Forms.Timer timer3;
+        private System.Windows.Forms.Label lblAlarmCountdown;
+        private System.Windows.Forms.TextBox txtProgramPath;
+        private System.Windows.Forms.Button btnBrowse;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }
 
