@@ -14,6 +14,9 @@ namespace SDRAlarm
         private int remainingSeconds = 0;
         private int remainingSecondsTimer2 = 0;
 
+        // new setting: whether to shutdown when sleep timer ends
+        private bool shutdownOnSleep = false;
+
         private readonly string settingsDir = Path.Combine(
             Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "SDRAlarm");
         private readonly string settingsFile;
@@ -35,7 +38,9 @@ namespace SDRAlarm
             timer2.Interval = 1000;
             timer2.Tick += timer2_Tick;
             timer3.Interval = 1000;
+            timer3.Tick -= timer3_Tick;
             timer3.Tick += timer3_Tick;
+            timer3.Interval = 1000;
 
             LoadProcesses();
         }
@@ -58,6 +63,14 @@ namespace SDRAlarm
                         if (!string.IsNullOrEmpty(programPath))
                             txtProgramPath.Text = programPath;
                     }
+
+                    // second line optional: shutdown option
+                    if (lines.Length > 1)
+                    {
+                        bool.TryParse(lines[1].Trim(), out shutdownOnSleep);
+                        // if you added a CheckBox control named chkShutdown in the designer:
+                        try { chkShutdown.Checked = shutdownOnSleep; } catch { }
+                    }
                 }
             }
             catch
@@ -73,7 +86,13 @@ namespace SDRAlarm
                 if (!Directory.Exists(settingsDir))
                     Directory.CreateDirectory(settingsDir);
 
-                File.WriteAllText(settingsFile, programPath ?? string.Empty);
+                // save programPath on first line and shutdown option on second line
+                var lines = new[]
+                {
+                    programPath ?? string.Empty,
+                    (chkShutdown != null && chkShutdown.Checked).ToString()
+                };
+                File.WriteAllLines(settingsFile, lines);
             }
             catch
             {
@@ -271,10 +290,44 @@ namespace SDRAlarm
                 }
 
                 lblStatus.Text = "Program closed. Sleep timer finished.";
+
+                // if the user selected shutdown, perform it now
+                try
+                {
+                    if (chkShutdown != null && chkShutdown.Checked)
+                    {
+                        lblStatus.Text = "Shutting down...";
+                        ShutdownWindows();
+                    }
+                }
+                catch
+                {
+                    // ignore if chkShutdown isn't present or shutdown fails here
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+        }
+
+        // new helper to invoke Windows shutdown
+        private void ShutdownWindows()
+        {
+            try
+            {
+                var psi = new ProcessStartInfo
+                {
+                    FileName = "shutdown",
+                    Arguments = "/s /t 30",
+                    CreateNoWindow = true,
+                    UseShellExecute = false
+                };
+                Process.Start(psi);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error shutting down", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
