@@ -3,3 +3,6 @@ This program was created after reading forums that sdr console didn't have a sle
 To use sleep: I suggest you launch SDR console first, the alarm program when launched will autosearch for sdr as a running process. you can also refresh and use the drop down to select anything running as well.
 
 To use alarm: Browse for your executable of SDR or any other program. enter a 24 hour time and start. countdown will begin if you entered the wrong time by mistake just enter another time and start again, this will update the timer.
+
+Link to executables:
+https://github.com/Tetsuyakaji/Sleep-Timer-and-Alarm-for-programs/tree/main
