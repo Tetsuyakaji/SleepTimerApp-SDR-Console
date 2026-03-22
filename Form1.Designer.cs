@@ -10,6 +10,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.cmbProcesses = new System.Windows.Forms.ComboBox();
             this.btnRefresh = new System.Windows.Forms.Button();
             this.lblHours = new System.Windows.Forms.Label();
@@ -140,7 +141,7 @@
             // lblStatus
             // 
             this.lblStatus.AutoSize = true;
-            this.lblStatus.Location = new System.Drawing.Point(8, 248);
+            this.lblStatus.Location = new System.Drawing.Point(9, 236);
             this.lblStatus.Name = "lblStatus";
             this.lblStatus.Size = new System.Drawing.Size(38, 13);
             this.lblStatus.TabIndex = 11;
@@ -262,7 +263,7 @@
             // chkShutdown
             // 
             this.chkShutdown.AutoSize = true;
-            this.chkShutdown.Location = new System.Drawing.Point(168, 247);
+            this.chkShutdown.Location = new System.Drawing.Point(168, 261);
             this.chkShutdown.Name = "chkShutdown";
             this.chkShutdown.Size = new System.Drawing.Size(198, 17);
             this.chkShutdown.TabIndex = 23;
@@ -292,6 +293,7 @@
             this.Controls.Add(this.lblHours);
             this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.cmbProcesses);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "SDR Timer Alarm";
             this.Load += new System.EventHandler(this.Form1_Load);
